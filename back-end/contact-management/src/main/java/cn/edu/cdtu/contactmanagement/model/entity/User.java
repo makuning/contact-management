@@ -1,5 +1,7 @@
 package cn.edu.cdtu.contactmanagement.model.entity;
 
+import cn.edu.cdtu.contactmanagement.handler.EncryptTypeHandler;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -15,11 +17,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName(value = "user")
+@TableName(value = "user", autoResultMap = true)
 public class User {
-    @TableId(value = "id")
     private String id;
+    @TableField(typeHandler = EncryptTypeHandler.class)
     private String username;
+    @TableField(typeHandler = EncryptTypeHandler.class)
     private String password;
     private Long contactId;
     private Boolean isDeleted;

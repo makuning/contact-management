@@ -1,7 +1,8 @@
 package cn.edu.cdtu.contactmanagement.service;
 
 import cn.edu.cdtu.contactmanagement.model.entity.User;
-
+import cn.edu.cdtu.contactmanagement.model.info.UserInfo;
+import cn.edu.cdtu.contactmanagement.type.ResponseType;
 import java.util.List;
 
 /**
@@ -11,6 +12,21 @@ import java.util.List;
  * @Version 1.0
  */
 public interface UserService {
+    /**
+     * 获取用户的详细信息
+     * @param id 用户ID
+     * @return
+     */
+    UserInfo getUserDetailInfo(String id);
+
+    /**
+     * 用户登录
+     * @param username
+     * @param password
+     * @return
+     */
+    String login(String username, String password);
+
     /**
      * 获取所有用户
      * @return
@@ -22,5 +38,12 @@ public interface UserService {
      * @param user
      * @return
      */
-    int createUser(User user);
+    ResponseType createUser(User user);
+
+    /**
+     * 删除一个用户
+     * @param id
+     * @return
+     */
+    ResponseType deleteUser(String id);
 }

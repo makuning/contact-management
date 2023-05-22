@@ -1,5 +1,6 @@
 package cn.edu.cdtu.contactmanagement.model.info;
 
+import cn.edu.cdtu.contactmanagement.type.ResponseType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,26 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JsonResult {
-    // 消息类型
-    public enum ResponseCode {
-        SUCCESS(0),
-        WORN(1),
-        FAIL(2),
-        ERROR(-1);
-
-        private final int code;
-
-        ResponseCode(int code) {
-            this.code = code;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(code);
-        }
-    }
-
-    private ResponseCode code;
+    private ResponseType code;
     private Object data;
     private String message;
 
@@ -44,7 +26,7 @@ public class JsonResult {
      * @return
      */
     public static JsonResult success(Object data, String message) {
-        return new JsonResult(ResponseCode.SUCCESS, data, message);
+        return new JsonResult(ResponseType.SUCCESS, data, message);
     }
 
     /**
@@ -54,7 +36,7 @@ public class JsonResult {
      * @return
      */
     public static JsonResult warn(Object data, String message) {
-        return new JsonResult(ResponseCode.WORN, data, message);
+        return new JsonResult(ResponseType.WORN, data, message);
     }
 
     /**
@@ -64,7 +46,7 @@ public class JsonResult {
      * @return
      */
     public static JsonResult fail(Object data, String message) {
-        return new JsonResult(ResponseCode.FAIL, data, message);
+        return new JsonResult(ResponseType.FAIL, data, message);
     }
 
     /**
@@ -74,6 +56,6 @@ public class JsonResult {
      * @return
      */
     public static JsonResult error(Object data, String message) {
-        return new JsonResult(ResponseCode.ERROR, data, message);
+        return new JsonResult(ResponseType.ERROR, data, message);
     }
 }

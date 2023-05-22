@@ -9,15 +9,15 @@ DROP TABLE IF EXISTS `user`;
 # 创建表
 CREATE TABLE `user` (
 	id CHAR(32) PRIMARY KEY COMMENT '关键字',
-	username VARCHAR(10) UNIQUE COMMENT '用户名',
-	`password` VARCHAR(20) COMMENT '登录密码',
+	username VARCHAR(50) UNIQUE COMMENT '用户名',
+	`password` VARCHAR(50) COMMENT '登录密码',
 	contact_id CHAR(32) COMMENT '外键，关联联系人，表示自己的信息',
 	is_deleted TINYINT(1) DEFAULT 0 COMMENT '逻辑删除'
 ) COMMENT = '用户表';
 
 CREATE TABLE `group` (
 	id CHAR(32) PRIMARY KEY COMMENT '关键字',
-	`name` VARCHAR(10) COMMENT '组名',
+	`name` VARCHAR(50) COMMENT '组名',
 	user_id CHAR(32) COMMENT '外键，关联用户',
 	is_deleted TINYINT(1) DEFAULT 0 COMMENT '逻辑删除',
 	FOREIGN KEY (user_id) REFERENCES `user`(id)
@@ -25,7 +25,7 @@ CREATE TABLE `group` (
 
 CREATE TABLE contact (
 	id CHAR(32) PRIMARY KEY COMMENT '关键字',
-	`name` VARCHAR(10) COMMENT '联系人姓名',
+	`name` VARCHAR(50) COMMENT '联系人姓名',
 	address VARCHAR(50) COMMENT '联系人居住地址',
 	remark VARCHAR(255) COMMENT '联系人备注',
 	user_id CHAR(32) COMMENT '外键，关联用户',
@@ -45,8 +45,8 @@ CREATE TABLE mail (
 
 CREATE TABLE phone (
 	id CHAR(32) PRIMARY KEY COMMENT '关键字',
-	`value` CHAR(11) COMMENT '电话号码',
-	source VARCHAR(20) COMMENT '号码归属地',
+	`value` VARCHAR(50) COMMENT '电话号码',
+	source VARCHAR(50) COMMENT '号码归属地',
 	contact_id CHAR(32) COMMENT '外键，关联联系人',
 	is_deleted TINYINT(1) DEFAULT 0 COMMENT '逻辑删除',
 	FOREIGN KEY (contact_id) REFERENCES contact(id)

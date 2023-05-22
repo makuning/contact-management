@@ -18,6 +18,13 @@
     </properties>
 
     <dependencies>
+        <!--跨域身份验证解决⽅案 Json web token包-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.7.0</version>
+        </dependency>
+
         <!-- SpringWeb -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
