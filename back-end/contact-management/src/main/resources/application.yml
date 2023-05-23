@@ -4,9 +4,14 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://www.19marken.top:3306/contact_management
+    url: jdbc:mysql://127.0.0.1:3307/contact_management
     username: contact_management
     password: 123456
+  mvc:
+    throw-exception-if-no-handler-found: true # 找不到处理函数时, 直接抛出异常
+  web:
+    resources:
+      add-mappings: false # 不要为我们工程中的资源文件建立映射
 
 mybatis-plus:
   configuration:
