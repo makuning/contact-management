@@ -33,19 +33,25 @@ const router = createRouter({
       component: () => import('../components/Res.vue')
     },
     {
-      path: '/test',
-      name: 'test',
+      path: '/',
+      name: 'person',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/test.vue')
+      component: () => import('../views/Person.vue')
+    },
+    {
+      path: '/cont',
+      name: 'cont',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/Cont.vue')
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(to);
-  console.log(from);
   let token = localStorage.getItem("token")
   if (token || to.path === "/login" || to.path === "/register"){
     next();

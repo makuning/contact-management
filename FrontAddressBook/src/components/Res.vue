@@ -7,7 +7,7 @@ export default {
         return {
             username: "",
             password: "",
-            u: "http://www.19marken.top:8089"
+            u: "http://192.168.1.100:8089"
         }
     },
     setup() {
@@ -101,13 +101,16 @@ export default {
 
 .login-icon{
     background: url("../assets/cat.svg") no-repeat;
-    background-size: 100px 100px;
+    background-image: "../assets/cat.svg";
+    background-size: 100% 100%;
     background-position: center center;
     height: 100px;
     width: 100px;
     display: inline-block;
     position:relative;
-    left:45%;
+    left:50%;
+    transform: translate(-20%);
+    bottom:0;
 }
 
 .btn2{

@@ -2,21 +2,10 @@
 import { RouterLink, RouterView } from 'vue-router'
 </script>
 
-<template>
-  <main class="border">
-    <RouterView />
-  </main>
-
-  <footer class="footer">
-    Theme contact-management front By Moe_Nya With <i class="footer-heart"></i><br>
-    Power By Vue3.0
-  </footer>
-</template>
-
 <style scoped>
 .border{
   background-color: rgb(248, 248, 240);
-  height: 65%;
+  height: 600px;
   width: 450px;
   margin: auto;
   border: 1px solid rgba(0, 0, 0, 0);
@@ -24,7 +13,8 @@ import { RouterLink, RouterView } from 'vue-router'
   position: absolute;
   top:50%;
   left:50%;
-  transform: translate(-50%, -65%);
+  transform: translate(-50%, -60%);
+  max-height: auto;
 }
 
 .footer{
@@ -52,3 +42,12 @@ import { RouterLink, RouterView } from 'vue-router'
   }
 }
 </style>
+<template>
+      <main class="border">
+        <RouterView />
+      </main>
+  <footer class="footer">
+    Theme contact-management front By Moe_Nya With <i class="footer-heart"></i><br>
+    Power By Vue3.0
+  </footer>
+</template>

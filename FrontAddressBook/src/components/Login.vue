@@ -8,7 +8,7 @@ export default {
             username: "",
             password: "",
             loginstatus: 0,
-            u: "http://www.19marken.top:8089"
+            u: "http://192.168.1.100:8089"
         }
     },
     setup() {
@@ -31,6 +31,7 @@ export default {
                     username: this.username,
                     password: this.password
                 }).then((res) => {
+                    console.log(res)
                     if (res.data.code == 'SUCCESS'){
                         ElNotification({
                             title: '成功',
@@ -40,7 +41,7 @@ export default {
                         let token = res.data.data
                         localStorage.setItem("token", token)
                         this.$router.push({
-                            path:'/test'
+                            path:'/'
                         })
                     }
                     else{
@@ -107,20 +108,24 @@ export default {
 
 .login-icon{
     background: url("../assets/cat.svg") no-repeat;
-    background-size: 100px 100px;
+    background-image: "../assets/cat.svg";
+    background-size: 100% 100%;
     background-position: center center;
     height: 100px;
     width: 100px;
     display: inline-block;
     position:relative;
-    left:45%;
+    left:50%;
+    transform: translate(-20%);
+    bottom:0;
+    
 }
 </style>
 
 <template>
     <div class="login-div">
         <div class="login-card">
-            <i class="login-icon"></i>
+            <div class="login-icon"></div>
             <h2 class="login-title">登入</h2>
             <div class="login-form">
                 <el-input class="login-input" v-model="username" placeholder="请输入账号" />
