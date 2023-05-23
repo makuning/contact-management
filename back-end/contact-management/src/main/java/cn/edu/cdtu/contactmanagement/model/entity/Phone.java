@@ -18,10 +18,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @TableName(value = "phone", autoResultMap = true)
 public class Phone {
-    private String id;
-    private String value;
-    private String source;
-    private String contactId;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Boolean isDeleted;
+    private String id;          // 手机ID
+    private String value;       // 手机号码
+    private String source;      // 手机归属地
+    private String contactId;   // 手机属于哪个联系人
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)  // 表示此字段与JSON互转时，只能被写入
+    private Boolean isDeleted;  // 逻辑删除
 }

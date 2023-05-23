@@ -19,6 +19,12 @@ public class GroupController {
     @Autowired
     private GroupService groupService;
 
+    /**
+     * 删除群组
+     * @param request 获取token
+     * @param id 群组ID
+     * @return
+     */
     @DeleteMapping("/{id}")
     public JsonResult deleteGroup(HttpServletRequest request, @PathVariable String id) {
         return new JsonResult(groupService.deleteGroup(id, request.getAttribute("user_id").toString()), null, "删除成功");
@@ -26,9 +32,9 @@ public class GroupController {
 
     /**
      * 将联系人添加到群组
-     * @param request
-     * @param groupId
-     * @param contactId
+     * @param request 获取token
+     * @param groupId 群组ID
+     * @param contactId 联系人ID
      * @return
      */
     @PutMapping("/{groupId}/{contactId}")
@@ -38,7 +44,7 @@ public class GroupController {
 
     /**
      * 获取所有群组
-     * @param request
+     * @param request 获取token
      * @return
      */
     @GetMapping
@@ -48,8 +54,8 @@ public class GroupController {
 
     /**
      * 创建群组
-     * @param request
-     * @param group
+     * @param request 获取token
+     * @param group 群组信息
      * @return
      */
     @PostMapping

@@ -15,14 +15,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JsonResult {
-    private ResponseType code;
-    private Object data;
-    private String message;
+    private ResponseType code;      // 自定义状态码
+    private Object data;            // 需要返回的数据
+    private String message;         // 提示消息
 
     /**
      * 快捷创建成功消息对象
-     * @param data
-     * @param message
+     * @param data 返回数据
+     * @param message 消息
      * @return
      */
     public static JsonResult success(Object data, String message) {
@@ -31,8 +31,8 @@ public class JsonResult {
 
     /**
      * 快捷创建警告消息对象
-     * @param data
-     * @param message
+     * @param data 返回数据
+     * @param message 消息
      * @return
      */
     public static JsonResult warn(Object data, String message) {
@@ -41,8 +41,8 @@ public class JsonResult {
 
     /**
      * 快捷创建失败消息对象
-     * @param data
-     * @param message
+     * @param data 返回数据
+     * @param message 消息
      * @return
      */
     public static JsonResult fail(Object data, String message) {
@@ -51,8 +51,8 @@ public class JsonResult {
 
     /**
      * 快捷创建错误消息对象
-     * @param data
-     * @param message
+     * @param data 返回数据
+     * @param message 消息
      * @return
      */
     public static JsonResult error(Object data, String message) {

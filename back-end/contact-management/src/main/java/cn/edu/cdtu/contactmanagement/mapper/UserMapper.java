@@ -2,8 +2,6 @@ package cn.edu.cdtu.contactmanagement.mapper;
 
 import cn.edu.cdtu.contactmanagement.model.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Select;
-import java.util.List;
 
 /**
  * @Description user表持久层访问
@@ -12,5 +10,4 @@ import java.util.List;
  * @Version 1.0
  */
 public interface UserMapper extends BaseMapper<User> {
-
 }

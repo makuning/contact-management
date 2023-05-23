@@ -10,8 +10,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @Version 1.0
  */
 public class JsonUtil {
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();    // 创建jackson对象转换类
 
+    /**
+     * 将对象转换为JSON字符串
+     * @param object 需要转换的对象
+     * @return 转换后的JSON字符串
+     */
     public static String toJson(Object object) {
         try {
             return objectMapper.writeValueAsString(object);

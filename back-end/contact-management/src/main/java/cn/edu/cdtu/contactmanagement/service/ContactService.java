@@ -15,31 +15,31 @@ import java.util.List;
 public interface ContactService {
     /**
      * 获取某个组下所有的联系人信息
-     * @param groupId
-     * @param userId
+     * @param groupId 群组ID
+     * @param userId 用户ID
      * @return
      */
     List<ContactInfo> getContactsByGroup(String groupId, String userId);
 
     /**
      * 获取联系人信息
-     * @param contactId
-     * @param userId
+     * @param contactId 联系人ID
+     * @param userId 用户ID
      * @return
      */
     ContactInfo getContact(String contactId, String userId);
 
     /**
      * 获取所有联系人
-     * @param id
+     * @param id 用户ID
      * @return
      */
     List<ContactInfo> getAllContacts(String id);
 
     /**
      * 添加联系人信息
-     * @param contactInfo
-     * @param id
+     * @param contactInfo 联系人详细信息
+     * @param id 用户ID
      * @return
      */
     ResponseType createContact(ContactInfo contactInfo, String id);

@@ -22,8 +22,8 @@ public class ContactController {
 
     /**
      * 根据群组获取联系人信息
-     * @param request
-     * @param id
+     * @param request 获取token
+     * @param id 群组ID
      * @return
      */
     @GetMapping("/group/{id}")
@@ -33,8 +33,8 @@ public class ContactController {
 
     /**
      * 获取某个联系人的详细信息
-     * @param id
-     * @param request
+     * @param id 联系人ID
+     * @param request 获取token
      * @return
      */
     @GetMapping("/{id}")
@@ -44,7 +44,7 @@ public class ContactController {
 
     /**
      * 获取所有联系人
-     * @param request
+     * @param request 获取token
      * @return
      */
     @GetMapping
@@ -54,8 +54,8 @@ public class ContactController {
 
     /**
      * 创建联系人
-     * @param request
-     * @param contactInfo
+     * @param request 获取token
+     * @param contactInfo 联系人详细信息
      * @return
      */
     @PostMapping()

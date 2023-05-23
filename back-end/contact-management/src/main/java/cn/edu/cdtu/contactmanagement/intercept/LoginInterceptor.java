@@ -12,6 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * @Description 登录切片
+ * @Author makun
+ * @Date 2023/5/22 14:50
+ * @Version 1.0
+ */
 public class LoginInterceptor implements HandlerInterceptor {
     /**
      * 在调用controller之前会调用此方法

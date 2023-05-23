@@ -19,8 +19,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserInfo {
-    private User user;
-    private Contact contact;
-    private List<Phone> phones;
-    private List<Mail> mails;
+    private User user;      // 基本用户信息
+    private Contact contact;    // 用户关联的基本联系信息
+    private List<Phone> phones; // 用户的手机号
+    private List<Mail> mails;   // 用户的邮箱
 }

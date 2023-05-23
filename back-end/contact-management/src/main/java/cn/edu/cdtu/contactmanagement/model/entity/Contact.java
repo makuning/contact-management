@@ -18,13 +18,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @TableName(value = "contact", autoResultMap = true)
 public class Contact {
-    private String id;
-    private String name;
-    private String head;
-    private String address;
-    private String remark;
-    private String userId;
-    private String groupId;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Boolean isDeleted;
+    private String id;      // 联系人ID
+    private String name;    // 联系人姓名
+    private String head;    // 联系人头衔
+    private String address; // 联系人地址
+    private String remark;  // 联系人备注
+    private String userId;  // 这个联系人属于哪个用户的
+    private String groupId; // 这个联系人属于哪个组的
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)  // 表示此字段与JSON互转时，只能被写入
+    private Boolean isDeleted;  // 逻辑删除
 }

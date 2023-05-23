@@ -3,10 +3,15 @@ package cn.edu.cdtu.contactmanagement.intercept;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * @Description 跨域切片
+ * @Author makun
+ * @Date 2023/5/22 14:50
+ * @Version 1.0
+ */
 public class CrossInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

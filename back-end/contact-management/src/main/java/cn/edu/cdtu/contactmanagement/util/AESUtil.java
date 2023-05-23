@@ -27,7 +27,6 @@ public class AESUtil {
 
     /**
      * 加密数据
-     *
      * @param data 待加密的数据
      * @param key  密钥
      * @return 加密后的结果
@@ -39,7 +38,6 @@ public class AESUtil {
 
     /**
      * 解密数据
-     *
      * @param data 待解密的数据
      * @param key  密钥
      * @return 解密后的结果
@@ -51,7 +49,6 @@ public class AESUtil {
 
     /**
      * AES加密
-     *
      * @param data 待加密数据
      * @param key  密钥
      * @return 加密后的数据
@@ -66,7 +63,6 @@ public class AESUtil {
 
     /**
      * AES解密
-     *
      * @param data 待解密数据
      * @param key  密钥
      * @return 解密后的数据
@@ -81,7 +77,6 @@ public class AESUtil {
 
     /**
      * 生成MD5哈希值
-     *
      * @param data 原始数据
      * @return 哈希值
      */

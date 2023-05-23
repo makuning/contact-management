@@ -25,7 +25,7 @@ public class UserController {
 
     /**
      * 注销用户
-     * @param request
+     * @param request 获取token
      * @return
      */
     @DeleteMapping
@@ -35,8 +35,8 @@ public class UserController {
 
     /**
      * 添加邮箱
-     * @param request
-     * @param mail
+     * @param request 获取token
+     * @param mail 邮箱信息
      * @return
      */
     @PostMapping("/mail")
@@ -46,8 +46,8 @@ public class UserController {
 
     /**
      * 添加手机号
-     * @param request
-     * @param phone
+     * @param request 获取token
+     * @param phone 电话信息
      * @return
      */
     @PostMapping("/phone")
@@ -57,8 +57,8 @@ public class UserController {
 
     /**
      * 更新用户基础信息
-     * @param request
-     * @param contact
+     * @param request 获取token
+     * @param contact 用户基础信息
      * @return
      */
     @RequestMapping(value = "/base",method = RequestMethod.PUT)
@@ -68,7 +68,7 @@ public class UserController {
 
     /**
      * 注册
-     * @param user
+     * @param user 用户信息
      * @return
      */
     @PostMapping("/register")

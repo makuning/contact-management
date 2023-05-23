@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContactInfo {
-    private Contact contact;
-    private List<Phone> phones;
-    private List<Mail> mails;
+    private Contact contact;    // 联系人基础信息
+    private List<Phone> phones; // 所有的电话信息
+    private List<Mail> mails;   // 所有的邮箱信息
 }

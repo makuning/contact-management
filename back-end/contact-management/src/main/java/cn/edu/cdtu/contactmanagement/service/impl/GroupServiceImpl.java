@@ -26,8 +26,8 @@ public class GroupServiceImpl implements GroupService {
 
     /**
      * 删除群组
-     * @param groupId
-     * @param userId
+     * @param groupId 群组ID
+     * @param userId 用户ID
      * @return
      */
     @Override
@@ -45,9 +45,9 @@ public class GroupServiceImpl implements GroupService {
 
     /**
      * 将联系人加入到组中
-     * @param groupId
-     * @param contactId
-     * @param userId
+     * @param groupId 群组ID
+     * @param contactId 联系人ID
+     * @param userId 用户ID
      * @return
      */
     @Override
@@ -75,7 +75,7 @@ public class GroupServiceImpl implements GroupService {
 
     /**
      * 获取所有群组
-     * @param id
+     * @param id 用户ID
      * @return
      */
     @Override
@@ -87,8 +87,8 @@ public class GroupServiceImpl implements GroupService {
 
     /**
      * 创建群组
-     * @param group
-     * @param id
+     * @param group 群组信息
+     * @param id 用户ID
      * @return
      */
     @Override

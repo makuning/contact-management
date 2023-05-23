@@ -18,24 +18,24 @@ public interface UserService {
 
     /**
      * 添加邮箱
-     * @param mail
-     * @param id
+     * @param mail 邮箱信息
+     * @param id 用户ID
      * @return
      */
     ResponseType addMail(Mail mail, String id);
 
     /**
      * 添加手机
-     * @param phone
-     * @param id
+     * @param phone 电话信息
+     * @param id 用户ID
      * @return
      */
     ResponseType addPhone(Phone phone, String id);
 
     /**
      * 更新用户的详细信息
-     * @param contact
-     * @param id
+     * @param contact 联系人信息
+     * @param id 用户ID
      * @return
      */
     ResponseType updateUserBaseInfo(Contact contact, String id);
@@ -49,8 +49,8 @@ public interface UserService {
 
     /**
      * 用户登录
-     * @param username
-     * @param password
+     * @param username 用户名
+     * @param password 用户密码
      * @return
      */
     String login(String username, String password);
@@ -63,14 +63,14 @@ public interface UserService {
 
     /**
      * 创建一个新用户
-     * @param user
+     * @param user 用户登录信息
      * @return
      */
     ResponseType createUser(User user);
 
     /**
      * 删除一个用户
-     * @param id
+     * @param id 用户ID
      * @return
      */
     ResponseType deleteUser(String id);

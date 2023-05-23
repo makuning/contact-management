@@ -39,8 +39,8 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 添加邮箱
-     * @param mail
-     * @param id
+     * @param mail 邮箱信息
+     * @param id 用户ID
      * @return
      */
     @Override
@@ -53,8 +53,8 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 添加手机号
-     * @param phone
-     * @param id
+     * @param phone 电话信息
+     * @param id 用户ID
      * @return
      */
     @Override
@@ -67,8 +67,8 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 更新用户的基本信息
-     * @param contact
-     * @param id
+     * @param contact 联系人信息
+     * @param id 用户ID
      * @return
      */
     @Override
@@ -153,7 +153,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 删除用户
-     * @param id
+     * @param id 用户ID
      * @return
      */
     @Override

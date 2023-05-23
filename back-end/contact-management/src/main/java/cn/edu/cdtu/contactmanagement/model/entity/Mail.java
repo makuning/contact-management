@@ -18,9 +18,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @TableName(value = "mail", autoResultMap = true)
 public class Mail {
-    private String id;
-    private String value;
-    private String contactId;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Boolean isDeleted;
+    private String id;          // 邮箱ID
+    private String value;       // 邮箱地址
+    private String contactId;   // 属于哪个联系人的
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)  // 表示此字段与JSON互转时，只能被写入
+    private Boolean isDeleted;  // 逻辑删除
 }
