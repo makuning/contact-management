@@ -5,19 +5,26 @@ const AddInfo = ref(false)
 </script>
 <script>
 import axios from 'axios'
+import { ref } from 'vue'
+import { ElNotification } from 'element-plus'
 export default {
     data() {
         return {
             set_img: "https://thirdqq.qlogo.cn/qqapp/101390507/5871CBBE7BD9FBC376875D098EA107C0/100",
-            phones: ["12345678909","09876543212","18746559673"],
+            phones: ["non"],
             email: "i@moenya.cat",
-            adress: "南极洲不知名冰屋",
+            address: "南极洲不知名冰屋",
             u: "http://192.168.1.100:8089",
-            username: ""
+            username: "",
+            na: "",
+            ad: "",
+            nu: ""
         }
     },
     setup() {
-        
+        const na = ref()
+        const ad = ref()
+        const nu = ref()
     },
     mounted() {
         this.LoginCheck()
@@ -29,18 +36,67 @@ export default {
                 path:'/login'
             })
         },
+        GetAdd() {
+            const token=localStorage.getItem("token")
+            if (this.na || this.ad){
+                axios.put(this.u + "/api/v1/pri/user/base", 
+                {
+                    "name": this.na,
+                    "address": this.ad
+                },
+                {
+                    headers: {
+                        token: token
+                    }
+                }
+                ).then((res) => {
+                    console.log(res)
+                    if (res.data.code === "SUCCESS"){
+                        ElNotification({
+                            title: '成功',
+                            message: '更新成功',
+                            type: 'success',
+                        })
+                        if (this.nu){
+                            axios.post(this.u + "/api/v1/pri/user/phone", {
+                                "value": this.nu
+                            },
+                            {
+                                headers: {
+                                    token: token
+                                }
+                            }).then((res) => {
+                                console.log(res)
+                            })
+                            
+                        }
+                        this.$router.go(0)
+                    }else
+                    {
+                        ElNotification({
+                            title: '失败',
+                            message: '更新失败',
+                            type: 'error',
+                        })
+                    }
+                })
+            }
+            
+            
+        },
         LoginCheck() {
-            let token=localStorage.getItem("token")
+            const token=localStorage.getItem("token")
             axios.get(this.u + "/api/v1/pri/user", {
                 headers: {
                     token: token
-                }
+                },
             }).then((res) => {
                 console.log(res)
                 if (res.data.code === 'SUCCESS'){
-                    this.username=res.data.data.user.username
-                    // this.set_img=res.data.data.contact.head
-                    // this.phones=res.data.data.phones
+                    this.username=res.data.data.contact.name
+                    this.address=res.data.data.contact.address
+                    this.set_img=res.data.data.contact.head
+                    this.phones=res.data.data.phones
                 }else{
                     localStorage.removeItem("token")
                     this.$router.push({
@@ -232,15 +288,18 @@ export default {
             <i class="head-icon resetinfo" @click="AddInfo = true"></i>
         </div>
         <el-dialog v-model="AddInfo" title="更改信息" width="90%" center>
-            <span>
-            用于更新个人信息
-            </span>
+            <span>用户名</span>
+            <el-input v-model="na" placeholder="请输入用户名" />
+            <span>地址</span>
+            <el-input v-model="ad" placeholder="请输入地址" />
+            <span>增加手机号</span>
+            <el-input v-model="nu" placeholder="请输入手机号" />
+            <span>修改邮箱</span>
+            <el-input v-model="em" placeholder="请输入邮箱地址" />
             <template #footer>
             <span class="dialog-footer">
                 <el-button @click="AddInfo = false">取消</el-button>
-                <el-button type="primary" @click="AddInfo = false">
-                确认
-                </el-button>
+                <el-button type="primary" @click="AddInfo = false, GetAdd()">确认</el-button>
             </span>
             </template>
         </el-dialog>
@@ -254,7 +313,7 @@ export default {
                     <el-scrollbar height="100px">
                         <div v-for="p in phones" :key="p" class="person-phone">
                             <i class="phoneicon"></i>
-                            <span class = "phonenum">{{ p }}</span>
+                            <span class = "phonenum">{{ p.value }}</span>
                         </div>
                     </el-scrollbar>
                 </div>
@@ -264,7 +323,7 @@ export default {
                 </div>
                 <div class="person-adress">
                     <i class="adressicon"></i>
-                    <span class = "phonenum">{{ adress }}</span>
+                    <span class = "phonenum">{{ address }}</span>
                 </div>
             </el-scrollbar>
         </div>

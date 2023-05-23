@@ -11,18 +11,19 @@ import { RouterLink, RouterView } from 'vue-router'
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 5px;
   position: absolute;
-  top:50%;
+  top:20px;
   left:50%;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%);
   max-height: auto;
 }
 
 .footer{
+  height:auto;
   font-weight: 600;
   font-size: 110%;
   text-align: center;
   position: absolute;
-  bottom: 2%;
+  bottom: 0;
   left:50%;
   transform: translate(-50%);
 }
@@ -43,9 +44,9 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 </style>
 <template>
-      <main class="border">
+  <main class="border">
         <RouterView />
-      </main>
+  </main>
   <footer class="footer">
     Theme contact-management front By Moe_Nya With <i class="footer-heart"></i><br>
     Power By Vue3.0
