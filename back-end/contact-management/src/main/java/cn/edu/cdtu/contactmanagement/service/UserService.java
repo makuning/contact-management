@@ -1,6 +1,8 @@
 package cn.edu.cdtu.contactmanagement.service;
 
 import cn.edu.cdtu.contactmanagement.model.entity.Contact;
+import cn.edu.cdtu.contactmanagement.model.entity.Mail;
+import cn.edu.cdtu.contactmanagement.model.entity.Phone;
 import cn.edu.cdtu.contactmanagement.model.entity.User;
 import cn.edu.cdtu.contactmanagement.model.info.UserInfo;
 import cn.edu.cdtu.contactmanagement.type.ResponseType;
@@ -13,6 +15,23 @@ import java.util.List;
  * @Version 1.0
  */
 public interface UserService {
+
+    /**
+     * 添加邮箱
+     * @param mail
+     * @param id
+     * @return
+     */
+    ResponseType addMail(Mail mail, String id);
+
+    /**
+     * 添加手机
+     * @param phone
+     * @param id
+     * @return
+     */
+    ResponseType addPhone(Phone phone, String id);
+
     /**
      * 更新用户的详细信息
      * @param contact

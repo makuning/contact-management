@@ -12,7 +12,7 @@ public class DefaultHeadUtils {
      * @return
      */
     public static String randomHead() {
-        String pre = "http://makun-ing-image-bed.oss-cn-chengdu.aliyuncs.com/contact-management/head/default/";
+        String pre = "http://makun-ing-image-bed.19marken.top/contact-management/head/default/";
         String fix = ".png";
         String filename = String.valueOf(Math.round((Math.random() * 4) + 1));
         return pre + filename + fix;

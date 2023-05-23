@@ -38,6 +38,34 @@ public class UserServiceImpl implements UserService {
     private MailMapper mailMapper;
 
     /**
+     * 添加邮箱
+     * @param mail
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseType addMail(Mail mail, String id) {
+        User user = userMapper.selectById(id);
+        mail.setContactId(user.getContactId());
+        mailMapper.insert(mail);
+        return ResponseType.SUCCESS;
+    }
+
+    /**
+     * 添加手机号
+     * @param phone
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseType addPhone(Phone phone, String id) {
+        User user = userMapper.selectById(id);
+        phone.setContactId(user.getContactId());
+        phoneMapper.insert(phone);
+        return ResponseType.SUCCESS;
+    }
+
+    /**
      * 更新用户的基本信息
      * @param contact
      * @param id

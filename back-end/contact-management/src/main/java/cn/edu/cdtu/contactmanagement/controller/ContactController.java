@@ -5,11 +5,7 @@ import cn.edu.cdtu.contactmanagement.model.info.JsonResult;
 import cn.edu.cdtu.contactmanagement.service.ContactService;
 import cn.edu.cdtu.contactmanagement.type.ResponseType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -23,6 +19,38 @@ import javax.servlet.http.HttpServletRequest;
 public class ContactController {
     @Autowired
     private ContactService contactService;
+
+    /**
+     * 根据群组获取联系人信息
+     * @param request
+     * @param id
+     * @return
+     */
+    @GetMapping("/group/{id}")
+    public JsonResult getContactsByGroup(HttpServletRequest request, @PathVariable String id) {
+        return JsonResult.success(contactService.getContactsByGroup(id, request.getAttribute("user_id").toString()),"获取成功");
+    }
+
+    /**
+     * 获取某个联系人的详细信息
+     * @param id
+     * @param request
+     * @return
+     */
+    @GetMapping("/{id}")
+    public JsonResult getContact(@PathVariable String id, HttpServletRequest request) {
+        return JsonResult.success(contactService.getContact(id, request.getAttribute("user_id").toString()),"获取成功");
+    }
+
+    /**
+     * 获取所有联系人
+     * @param request
+     * @return
+     */
+    @GetMapping
+    public JsonResult getAllContacts(HttpServletRequest request) {
+        return JsonResult.success(contactService.getAllContacts(request.getAttribute("user_id").toString()),"获取成功");
+    }
 
     /**
      * 创建联系人

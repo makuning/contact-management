@@ -2,9 +2,8 @@ package cn.edu.cdtu.contactmanagement.model.entity;
 
 import cn.edu.cdtu.contactmanagement.handler.EncryptTypeHandler;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,15 +17,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName(value = "user", autoResultMap = true)
+@TableName(value = "`user`", autoResultMap = true)
 public class User {
     private String id;
     @TableField(typeHandler = EncryptTypeHandler.class)
     private String username;
     @TableField(typeHandler = EncryptTypeHandler.class)
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     private String contactId;
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Boolean isDeleted;
 }
