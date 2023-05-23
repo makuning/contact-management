@@ -1,30 +1,26 @@
 package cn.edu.cdtu.contactmanagement.model.entity;
 
-import cn.edu.cdtu.contactmanagement.handler.EncryptTypeHandler;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Description 用户表实体类
+ * @Description 电话表
  * @Author makun
- * @Date 2023/5/22 11:29
+ * @Date 2023/5/23 12:49
  * @Version 1.0
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName(value = "`user`", autoResultMap = true)
-public class User {
+@TableName(value = "phone", autoResultMap = true)
+public class Phone {
     private String id;
-    @TableField(typeHandler = EncryptTypeHandler.class)
-    private String username;
-    @TableField(typeHandler = EncryptTypeHandler.class)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private String password;
+    private String value;
+    private String source;
     private String contactId;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Boolean isDeleted;

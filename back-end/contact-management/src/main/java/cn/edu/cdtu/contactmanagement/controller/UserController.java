@@ -1,14 +1,15 @@
 package cn.edu.cdtu.contactmanagement.controller;
 
+import cn.edu.cdtu.contactmanagement.model.entity.Contact;
+import cn.edu.cdtu.contactmanagement.model.entity.Mail;
+import cn.edu.cdtu.contactmanagement.model.entity.Phone;
 import cn.edu.cdtu.contactmanagement.model.entity.User;
 import cn.edu.cdtu.contactmanagement.model.info.JsonResult;
 import cn.edu.cdtu.contactmanagement.service.UserService;
 import cn.edu.cdtu.contactmanagement.type.ResponseType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 /**
  * @Description 用户业务相关接口
@@ -21,6 +22,49 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    /**
+     * 注销用户
+     * @param request
+     * @return
+     */
+    @DeleteMapping
+    public JsonResult deleteUser(HttpServletRequest request) {
+        return new JsonResult(userService.deleteUser(request.getAttribute("user_id").toString()), null, "注销成功");
+    }
+
+    /**
+     * 添加邮箱
+     * @param request
+     * @param mail
+     * @return
+     */
+    @PostMapping("/mail")
+    public JsonResult addMail(HttpServletRequest request, @RequestBody Mail mail) {
+        return new JsonResult(userService.addMail(mail, request.getAttribute("user_id").toString()),null,"添加成功");
+    }
+
+    /**
+     * 添加手机号
+     * @param request
+     * @param phone
+     * @return
+     */
+    @PostMapping("/phone")
+    public JsonResult addPhone(HttpServletRequest request, @RequestBody Phone phone) {
+        return new JsonResult(userService.addPhone(phone, request.getAttribute("user_id").toString()),null, "添加成功");
+    }
+
+    /**
+     * 更新用户基础信息
+     * @param request
+     * @param contact
+     * @return
+     */
+    @RequestMapping(value = "/base",method = RequestMethod.PUT)
+    public JsonResult baseInfoUpdate(HttpServletRequest request, @RequestBody Contact contact) {
+        return new JsonResult(userService.updateUserBaseInfo(contact, request.getAttribute("user_id").toString()),null,"更新成功");
+    }
 
     /**
      * 注册

@@ -16,7 +16,7 @@ public class JWTUtil {
     /**
      * 主题，是由谁颁布的
      */
-    private static final String SUBJECT = "online_class";
+    private static final String SUBJECT = "contact-management";
     /**
      * 过期时间，一周
      */
@@ -24,11 +24,11 @@ public class JWTUtil {
     /**
      * 加密密钥
      */
-    private static final String SECRET = "online_class";
+    private static final String SECRET = "contact-management";
     /**
      * 令牌前缀
      */
-    private static final String TOKEN_PREFIX = "online_class";
+    private static final String TOKEN_PREFIX = "contact-management";
 
     /**
      * 通过一个User对象生成一个JWT令牌

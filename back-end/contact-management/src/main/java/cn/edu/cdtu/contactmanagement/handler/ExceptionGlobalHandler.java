@@ -62,7 +62,7 @@ public class ExceptionGlobalHandler {
      */
     @ExceptionHandler(Exception.class)
     public JsonResult doException(Exception exception) {
-        System.out.println("未知异常你好");
+        System.err.println("未知异常" + exception.getMessage());
         return JsonResult.error(exception.getMessage(), "未知错误");
     }
 }
