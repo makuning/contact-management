@@ -4,6 +4,7 @@ import cn.edu.cdtu.contactmanagement.handler.EncryptTypeHandler;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,9 @@ public class User {
     @TableField(typeHandler = EncryptTypeHandler.class)
     private String username;
     @TableField(typeHandler = EncryptTypeHandler.class)
+    @JsonIgnore
     private String password;
-    private Long contactId;
+    private String contactId;
+    @JsonIgnore
     private Boolean isDeleted;
 }

@@ -1,14 +1,13 @@
 package cn.edu.cdtu.contactmanagement.controller;
 
+import cn.edu.cdtu.contactmanagement.model.entity.Contact;
 import cn.edu.cdtu.contactmanagement.model.entity.User;
 import cn.edu.cdtu.contactmanagement.model.info.JsonResult;
 import cn.edu.cdtu.contactmanagement.service.UserService;
 import cn.edu.cdtu.contactmanagement.type.ResponseType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 /**
  * @Description 用户业务相关接口
@@ -21,6 +20,17 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    /**
+     * 更新用户基础信息
+     * @param request
+     * @param contact
+     * @return
+     */
+    @RequestMapping(value = "/base",method = RequestMethod.PUT)
+    public JsonResult baseInfoUpdate(HttpServletRequest request, @RequestBody Contact contact) {
+        return new JsonResult(userService.updateUserBaseInfo(contact, request.getAttribute("user_id").toString()),null,"更新成功");
+    }
 
     /**
      * 注册
