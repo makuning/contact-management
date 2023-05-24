@@ -17,3 +17,7 @@
 ![](https://raw.githubusercontent.com/makuning/contact-management/main/img/Screenshot%202023-05-24%20161324.png)
 
 ![](https://github.com/makuning/contact-management/blob/main/img/Screenshot%202023-05-24%20161402.png?raw=true)
+
+## 部署
+
+由于不打算发布正式版本，考虑到实用性，不提供可运行文件，如果有学习需要，可以clone源码自行部署，数据库表在`/design/设计.md`中可以找到。
