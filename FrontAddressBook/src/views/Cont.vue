@@ -4,22 +4,43 @@ import TheMenu from '../components/Menu.vue'
 const AddInfo = ref(false)
 </script>
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
-            contact: [{name:"张三", phonenum: 123, email:"110@110.com", home: "China", url:"https://thirdqq.qlogo.cn/qqapp/101390507/5871CBBE7BD9FBC376875D098EA107C0/100"},{name:"李四", phonenum: 456, email:"110@110.com", home: "China", url:"https://thirdqq.qlogo.cn/qqapp/101390507/5871CBBE7BD9FBC376875D098EA107C0/100"}],
+            contact: {},
             contactnum: 0,
-            set_img: "https://thirdqq.qlogo.cn/qqapp/101390507/5871CBBE7BD9FBC376875D098EA107C0/100"
+            set_img: "https://thirdqq.qlogo.cn/qqapp/101390507/5871CBBE7BD9FBC376875D098EA107C0/100",
+            u: "http://192.168.1.101:8089",
         }
     },
     setup() {
         
     },
     mounted() {
-        
+        this.LoginCheck()
     },
     methods: {
-
+        LoginCheck() {
+            const token=localStorage.getItem("token")
+            axios.get(this.u + "/api/v1/pri/contact", {
+                headers: {
+                    token: token
+                },
+            }).then((res) => {
+                console.log(res.data.data[0])
+                if (res.data.code==='SUCCESS'){
+                    this.contactnum=res.data.data.length
+                    this.contact=res.data.data
+                }else{
+                    localStorage.removeItem("token")
+                    this.$router.push({
+                        path:'/login'
+                    })
+                }
+                
+            })
+        }
     }
 }
 </script>
@@ -134,12 +155,12 @@ export default {
         <el-scrollbar height="400px" class="contact-box">
             <div v-for="p in contact" :key="p" class="contact-info">
                 <div class="contact-img">
-                    <img :src="p.url" alt="image" class="centered-image">
+                    <img :src="p.contact.head" alt="image" class="centered-image">
                 </div>
-                <p class = "contact-info-name">{{ p.name }}</p>
-                <p class = "contact-info-num">{{ p.phonenum }}</p>
-                <p class = "contact-info-num">{{ p.email }}</p>
-                <p class = "contact-info-num">{{ p.home }}</p>
+                <p class = "contact-info-name">{{ p.contact.name }}</p>
+                <p class = "contact-info-num">{{ p.phones[0].value }}</p>
+                <p class = "contact-info-num">{{ p.mails[0].value }}</p>
+                <p class = "contact-info-num">{{ p.contact.address }}</p>
             </div>
         </el-scrollbar>
         <TheMenu />

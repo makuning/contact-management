@@ -14,7 +14,7 @@ export default {
             phones: ["non"],
             email: "i@moenya.cat",
             address: "南极洲不知名冰屋",
-            u: "http://192.168.1.100:8089",
+            u: "http://192.168.1.101:8089",
             username: "",
             na: "",
             ad: "",
@@ -25,6 +25,7 @@ export default {
         const na = ref()
         const ad = ref()
         const nu = ref()
+        const email = ref()
     },
     mounted() {
         this.LoginCheck()
@@ -70,6 +71,19 @@ export default {
                             })
                             
                         }
+                        if (this.email){
+                            console.log(this.email)
+                            axios.post(this.u + "/api/v1/pri/user/mail", {
+                                "value": this.email
+                            },
+                            {
+                                headers: {
+                                    token: token
+                                }
+                            }).then((res) => {
+                                console.log(res)
+                            })
+                        }
                         this.$router.go(0)
                     }else
                     {
@@ -97,6 +111,7 @@ export default {
                     this.address=res.data.data.contact.address
                     this.set_img=res.data.data.contact.head
                     this.phones=res.data.data.phones
+                    this.email=res.data.data.mails[0].value
                 }else{
                     localStorage.removeItem("token")
                     this.$router.push({
@@ -288,14 +303,14 @@ export default {
             <i class="head-icon resetinfo" @click="AddInfo = true"></i>
         </div>
         <el-dialog v-model="AddInfo" title="更改信息" width="90%" center>
-            <span>用户名</span>
-            <el-input v-model="na" placeholder="请输入用户名" />
-            <span>地址</span>
+            <span>更改昵称</span>
+            <el-input v-model="na" placeholder="请输入昵称" />
+            <span>更改地址</span>
             <el-input v-model="ad" placeholder="请输入地址" />
             <span>增加手机号</span>
             <el-input v-model="nu" placeholder="请输入手机号" />
             <span>修改邮箱</span>
-            <el-input v-model="em" placeholder="请输入邮箱地址" />
+            <el-input v-model="email" placeholder="请输入邮箱地址" />
             <template #footer>
             <span class="dialog-footer">
                 <el-button @click="AddInfo = false">取消</el-button>

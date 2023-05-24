@@ -7,7 +7,7 @@ export default {
         return {
             username: "",
             password: "",
-            u: "http://192.168.1.100:8089"
+            u: "http://192.168.1.101:8089"
         }
     },
     setup() {

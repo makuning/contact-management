@@ -20,6 +20,11 @@ export default {
             this.$router.push({
                 path:'/cont'
             })
+        },
+        GoGroup() {
+            this.$router.push({
+                path:'/group'
+            })
         }
     }
 }
@@ -76,7 +81,7 @@ export default {
 <template>
     <div class="menu">
         <el-row>
-            <el-col :span="8" class="clickback"><div class="grid-content" />
+            <el-col :span="8" class="clickback" @click=GoGroup><div class="grid-content" />
                 <i class = "menuicon-group"></i>
                 <p>群组</p>
             </el-col>
