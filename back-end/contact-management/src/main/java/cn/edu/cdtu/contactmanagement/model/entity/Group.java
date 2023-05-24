@@ -20,6 +20,7 @@ import lombok.NoArgsConstructor;
 public class Group {
     private String id;          // 群组ID
     private String name;        // 群组名称
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)  // 表示此字段与JSON互转时，只能被写入
     private String userId;      // 这个群组属于哪个用户的
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)  // 表示此字段与JSON互转时，只能被写入
     private Boolean isDeleted;  // 逻辑删除
