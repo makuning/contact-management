@@ -10,10 +10,10 @@
 
 由Spring+Mybatis plus & NodeJs+Vue3开发的响应式电话簿，可以建立个人主页、联系人列表、联系人群组列表，项目原型图`/design/view`，接口设计`/design/设计.md`。
 
-![Screenshot 2023-05-24 161229](img/Screenshot 2023-05-24 161229.png)
+![](https://raw.githubusercontent.com/makuning/contact-management/main/img/Screenshot%202023-05-24%20161229.png)
 
-![Screenshot 2023-05-24 161259](img\Screenshot 2023-05-24 161259.png)
+![](https://raw.githubusercontent.com/makuning/contact-management/main/img/Screenshot%202023-05-24%20161259.png)
 
-![Screenshot 2023-05-24 161324](img/Screenshot 2023-05-24 161324.png)
+![](https://raw.githubusercontent.com/makuning/contact-management/main/img/Screenshot%202023-05-24%20161324.png)
 
-![Screenshot 2023-05-24 161402](img/Screenshot 2023-05-24 161402.png)
+![](https://github.com/makuning/contact-management/blob/main/img/Screenshot%202023-05-24%20161402.png?raw=true)
